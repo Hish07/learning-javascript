@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 8</title>
+</head>
+<body>
+
+
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 8</title>
+</head>
+
+<body>
+
+    <button onclick="change_name()"> Change Name</button>
+    <button onclick="change_phonenumber()"> Change Phone_number</button>
+    <button onclick="change_ad()">Change-address</button>
+    <button onclick="sub_choice()">Subject choice</button>
+    <button onclick="change_status()"> change status</button>
+    <button onclick="age()">Age</button>
+    <button onclick="total_mark()">Total mark</button>
+   
+</body>
+<script>
+    let num = []
+    limit = 1
+    for (let i = 0; i < limit; i++) {
+
+        num.push(Math.floor(Math.random() * (10000 - 2000)) + 2000)
+
+    }
+
+    let student = {
+        college_id: num,
+        name: "notime",
+        email: "notime@gmail.com",
+        Phone_number: "99999999999",
+        Address: {
+            House_number: "",
+            Street_name: "",
+            Pin_number: "",
+            Country: "",
+        },
+        scholorship: false,
+        sub: [
+            {
+                sub_name: "CVPDE",
+                sub_marks: 100,
+            },
+            {
+                sub_name: "IP",
+                sub_marks: 91,
+            },
+            {
+                sub_name: "FMEB",
+                sub_marks: 94
+            }
+
+        ]
+
+
+    }
+
+    //functions mela
+
+    function change_name() {
+
+        let newName = prompt("Enter new name to be changed")
+        student.name = newName
+        console.log("New name is", student.name)
+
+
+    }
+  
+
+    function change_phonenumber() {
+
+
+        let new_phone = prompt("enter mobile number to be changed")
+
+        student.Phone_number = new_phone
+        console.log("Enter new phone number to be changed", student.Phone_number)
+
+
+
+    }
+  
+
+    function change_ad() {
+
+        let ask = prompt("Do you want to change the address")
+
+        if (ask == "yes") {
+
+
+            let new_housno = prompt("Enter house no")
+            let new_strname = prompt("Enter street name")
+            let new_pinNo = prompt("enter new pincode")
+            let new_country = prompt("Enter Country")
+
+            student.address.House_number = new_housno
+            student.address.Street_name = new_strname
+            student.address.Pin_number = new_pinNo
+            student.address.Country = new_country
+
+            console.log("new address is ", student.address)
+
+        }
+
+        else {
+            console.log("address not changed")
+        }
+
+    }
+   
+
+    function sub_choice() {
+
+        let sub_value = prompt("a.Add a new subject\n b.Remove a subject by specifying its name\n c.change the mark of a subject\n d.Display all the mark")
+
+
+        if (sub_value == "a") {
+
+            sub_name = prompt("Enter New subject name")
+            sub_mark = parseInt(prompt("Enter New subject mark"))
+
+            student.sub.push({ sub_name, sub_mark })
+
+
+            console.log("Added new subject", student.sub)
+
+        }
+
+        else if (sub_value == "b") {
+
+            let del_subname = prompt("Enter subject name you want to delete")
+
+            for (var j = 0; j < student.sub.length; j++) {
+
+
+                if (student.sub[j].sub_name == del_subname) {
+
+                    student.sub.splice(j, 1)
+
+                }
+
+            }
+
+
+            console.log("Updated marklist", student.sub)
+
+
+        }
+        // changing the mark of subject
+        else if (sub_value == "c") {
+
+            let change_subname = prompt("Enter subject name you wanna change the mark")
+            let new_mark = parseInt(prompt("Enter your new mark"))
+
+            for (let k = 0; k < sub.length; k++) {
+                if (sub[k].sub_name == change_subname) {
+
+                    student.sub[k].sub_mark = new_mark
+
+                    console.log("updated mark list is", student.sub)
+
+
+                }
+                else {
+
+                    console.log("entered subject is not present")
+                }
+            }
+
+
+        }
+        else if(sub_value == "d"){
+
+            console.log(student.sub)
+
+
+
+        }
+    }
+ 
+
+    function change_status(){
+
+      let scholarship_value =  prompt("do you want to change the application status?")
+
+
+      if (scholarship_value == "yes"){
+
+        student.scholorship = true
+        console.log("Scholarship status", student.scholarship);
+      }
+      else{
+        console.log("scholarship status",student.scholorship)
+      }
+
+    }
+   
+
+    function age(){
+        let age_value =  prompt("enter your age")
+        student.age = age_value
+        console.log("age added ",age)
+
+    }
+   
+    function total_mark(){
+
+
+
+        let sum = 0
+        for( let k = 0;k < student.sub.length; k++ ){
+
+
+             sum = sum+student.sub[k].sub_marks
+        }
+        console.log("total mark = ",sum)
+    }
+   
+
+   
+
+
+
+
+
+
+
+</script>
+
+</html>
+    
+</body>
+</html>

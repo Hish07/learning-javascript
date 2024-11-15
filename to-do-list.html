@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do-list</title>
+</head>
+
+<body>
+    <input type="text" id="inputer">
+    <button onclick="addtask()">add</button>
+    <div id="textarea"> </div>
+
+
+
+</body>
+<script>
+
+    function addtask() {
+
+
+        let show = document.getElementById("textarea")
+
+        let newText = document.getElementById('inputer').value
+        let box1 = document.createElement('div')
+        box1.id = "t1"
+        let para = document.createElement('p')
+        para.id = "t2"
+        para.style.color = "red"
+        para.innerHTML = newText
+        box1.appendChild(para)
+        show.appendChild(box1)
+
+
+        let editButton = document.createElement('button')
+        box1.appendChild(editButton)
+        editButton.innerHTML = " Edit"
+
+        editButton.onclick = function () {
+
+            para.innerHTML = prompt("Enter what you want to inserst instead ", para.innerHTML)
+
+        }
+
+        let deleteButton = document.createElement('button')
+        deleteButton.innerHTML = "Delete"
+        box1.appendChild(deleteButton)
+        deleteButton.onclick = function () {
+
+            box1.remove()
+        }
+
+
+        document.getElementById('inputer').value = ''
+
+    }
+    document.addEventListener('keypress', function (event) {
+        console.log(event)
+
+        if (event.code === 'Space') {
+            alert('Hi Hisham, I love you')
+
+        }
+
+    })
+
+    document.addEventListener('keypress',function(event){
+        let phonenumber = 8111924047
+
+        if(event.code === 'KeyQ'){
+          localStorage =   prompt('Do you want to change your phone number')
+        }
+    })
+
+</script>
+
+</html>

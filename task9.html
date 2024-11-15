@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darkmode</title>
+</head>
+<style>
+    #id {
+
+        width: 100px;
+        height: 50px;
+    }
+</style>
+
+<body>
+
+
+    <button id="toggle">Change the mode </button>
+    <h1 id="t1"></h1>
+    <div>
+        <h1 id="t2">This is a heading</h1>
+        <p id="t3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio ipsa atque, dolorem accusantium porro
+            voluptas iste earum perspiciatis ratione quia itaque molestiae vel sunt debitis eaque minus? Modi, nostrum
+            molestiae!</p>
+
+    </div>
+
+
+
+</body>
+<script>
+
+    let toggle = document.getElementById('toggle')
+    let local = localStorage.getItem("mode")
+    let t1 = document.getElementById('t1')
+    let t2 = document.getElementById('t2')
+    let t3 = document.getElementById('t3')
+
+    if (local == null) {
+        console.log("now we are in white mode starting")
+        localStorage.setItem("mode", "white-mode")
+
+    }
+    else {
+        if (local == "white-mode") {
+            
+            document.body.style.backgroundColor = "white"
+            t2.style.color = "black"
+            t3.style.color = "black"
+           
+        }
+        else {
+
+            toggle.style.backgroundColor = "black"
+            toggle.style.color = "white"
+            document.body.style.backgroundColor = "black"
+            t2.style.color = "white"
+            t3.style.color = "white"
+
+        }
+    }
+    
+
+
+  
+
+    toggle.onclick = function () {
+
+        const mode = localStorage.getItem("mode")
+
+        if (mode == "white-mode") {
+            localStorage.setItem("mode", "dark-mode")
+            toggle.style.backgroundColor = "black"
+            toggle.style.color = "white"
+            document.body.style.backgroundColor = "black"
+            t2.style.color = "white"
+            t3.style.color = "white"
+
+
+        }
+        else {
+            localStorage.setItem("mode", "white-mode")
+
+            document.body.style.backgroundColor = "white"
+            t2.style.color = "black"
+            t3.style.color = "black"
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+</script>
+
+</html>

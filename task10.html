@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation</title>
+</head>
+
+<body>
+    <h1 id="editableText"> this is an H1 tag</h1>
+    <button id="edit">edit</button>
+    <button id="colour">Change color</button>
+    <button></button>
+
+</body>
+<script>
+
+    let editableText = document.getElementById('editableText')
+    let edit = document.getElementById('edit')
+    let colourbutton = document.getElementById('colour')
+
+
+    edit.addEventListener("click", function () {
+
+        editableText.innerHTML = prompt("enter the text to be changed", editableText.textContent);
+
+    })
+
+    let colors = ["red", "green", "cyan", "aquamarine", "blue", "bwlack", "yellow", "magenta", "Orange", "Violet", "Lightgrey"]
+
+
+
+
+
+
+    colourbutton.addEventListener("click", () => {
+        const randomColor = colors[Math.floor(Math.random() * colors.length)]
+        editableText.style.color = randomColor
+    })
+
+
+</script>
+
+</html>

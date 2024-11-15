@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const num = []
+    let limit = 10
+    const newarr = []
+    let filteredarr = []
+
+    for(let i = 0;i<limit;i++)
+    {
+        num.push(Math.floor(Math.random()*100))
+
+    }
+    
+
+    for(let j = 0 ; j<10;j++)
+    {
+      
+        if(num[j] < 40)
+    {
+        newarr.push(num[j])
+    }
+    
+    }
+    filteredarr= num.filter(num=>num<40)
+    
+
+
+    let multby2 = num.map(num=>num*2)
+
+
+    console.log("random numbers are ", num)
+    console.log("number less than 40 are",newarr)
+    console.log("less than 40 but using filter method",filteredarr)
+    console.log("multiplied by 2 using map method",multby2)
+    
+
+</script>
+</html>

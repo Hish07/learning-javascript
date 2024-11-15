@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+</head>
+<body>
+    
+</body>
+<script>
+  //first method
+
+  function multiplication(){
+    let num1 =10
+    let num2 =88
+    let result1 = num1*num2
+    console.log("normal multiplication",result1)
+  }
+  
+
+
+  function multiplication_params(num1,num2){
+    result=num1*num2
+    console.log("multiplication using parameter is",result)
+  }
+
+
+
+
+
+  function square(num){
+   return num*num
+  }
+
+  function calculateaAreaOfCircle(radius){
+    const pi = 3.1437
+    area = pi*square(radius)
+    return area
+
+  }
+
+function main() {
+
+multiplication();
+multiplication_params(9,8)
+let radius = 5
+let area = calculateaAreaOfCircle(radius)
+console.log ("Area of the circle",area)
+
+
+}
+
+main();
+
+
+
+</script>
+</html>
