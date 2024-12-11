@@ -1,0 +1,176 @@
+ [
+    {
+        "College_Id": "1",
+        "Name": "abhi c",
+        "Email": "abhi@gmail.com",
+        "Phone_number": "9637826743",
+        "Address": {
+            "House_number": "12",
+            "Street_name": "Elm street",
+            "Pin_number": "380015",
+            "Country": "India"
+        },
+        "Subjects": [{
+            "Subject_name": "Math", "Total_marks": "95"
+        }, { "Subject_name": "Science", "Total_marks": "89" }],
+        "Applied_for_Scholarship": true
+
+    },
+
+
+    {
+        "College_Id": "1",
+        "Name": "adhithyan ",
+        "Email": "adhithya@gmail.com",
+        "Phone_number": "96374326743",
+        "Address": {
+            "House_number": "11",
+            "Street_name": "vadasherypuram",
+            "Pin_number": "38433",
+            "Country": "India"
+        },
+        "Subjects": [{
+            "Subject_name": "Math", "Total_marks": "77"
+        }, { "Subject_name": "Science", "Total_marks": "90" }],
+        "Applied_for_Scholarship": false
+
+    },
+
+    {
+        "College_Id": "3",
+        "Name": "adhishayan",
+        "Email": "adhithyjaaa@gmail.com",
+        "Phone_number": "9654326743",
+        "Address": {
+            "House_number": "13",
+            "Street_name": "kalamassery",
+            "Pin_number": "38400",
+            "Country": "India"
+        },
+        "Subjects": [{
+            "Subject_name": "Math", "Total_marks": "90"
+        }, { "Subject_name": "Science", "Total_marks": "80" }],
+        "Applied_for_Scholarship": true
+
+    },
+    {
+        "College_Id": "4",
+        "Name": "mehak",
+        "Email": "mehak@gmail.com",
+        "Phone_number": "943246743",
+        "Address": {
+            "House_number": "19",
+            "Street_name": "lendernal",
+            "Pin_number": "30099",
+            "Country": "India"
+        },
+        "Subjects": [{
+            "Subject_name": "Math", "Total_marks": "97"
+        }, { "Subject_name": "Science", "Total_marks": "100" }],
+        "Applied_for_Scholarship": false
+
+    },
+    {
+        "College_Id": "8",
+        "Name": "Hisham",
+        "Email": "hishamvp83@gmail.com",
+        "Phone_number": "9639090743",
+        "Address": {
+            "House_number": "13",
+            "Street_name": "linderna",
+            "Pin_number": "384343",
+            "Country": "India"
+        },
+        "Subjects": [{
+            "Subject_name": "Math", "Total_marks": "10"
+        }, { "Subject_name": "Science", "Total_marks": "60" }],
+        "Applied_for_Scholarship": true
+
+    },
+    {
+        "College_Id": "9",
+        "Name": "nihel",
+        "Email": "sinda@gmail.com",
+        "Phone_number": "95435345443",
+        "Address": {
+            "House_number": "9",
+            "Street_name": "kilobyte",
+            "Pin_number": "09304",
+            "Country": "India"
+        },
+        "Subjects": [{
+            "Subject_name": "Math", "Total_marks": "97"
+        }, { "Subject_name": "Science", "Total_marks": "100" }],
+        "Applied_for_Scholarship": false
+
+    },
+    {
+        "College_Id": "8",
+        "Name": "shihab ",
+        "Email": "kunjayammu@gmail.com",
+        "Phone_number": "9637434323",
+        "Address": {
+            "House_number": "14",
+            "Street_name": "kundannoor",
+            "Pin_number": "9999",
+            "Country": "India"
+        },
+        "Subjects": [{
+            "Subject_name": "Math", "Total_marks": "80"
+        }, { "Subject_name": "Science", "Total_marks": "100" }],
+        "Applied_for_Scholarship": false
+
+    },
+    {
+        "College_Id": "100",
+        "Name": "   Rinshad ",
+        "Email": "rinshaa@gmail.com",
+        "Phone_number": "96324326743",
+        "Address": {
+            "House_number": "99",
+            "Street_name": "kulu",
+            "Pin_number": "38433",
+            "Country": "India"
+        },
+        "Subjects": [{
+            "Subject_name": "Math", "Total_marks": "77"
+        }, { "Subject_name": "Science", "Total_marks": "90" }],
+        "Applied_for_Scholarship": false
+
+    },
+    {
+        "College_Id": "88",
+        "Name": "kinder",
+        "Email": "kinder@gmail.com",
+        "Phone_number": "96004326743",
+        "Address": {
+            "House_number": "16",
+            "Street_name": "kundannoor",
+            "Pin_number": "90881",
+            "Country": "India"
+        },
+        "Subjects": [{
+            "Subject_name": "Math", "Total_marks": "77"
+        }, { "Subject_name": "Science", "Total_marks": "90" }],
+        "Applied_for_Scholarship": false
+
+    },
+    {
+        "College_Id": "76",
+        "Name": "kunjon ",
+        "Email": "kunjippa@gmail.com",
+        "Phone_number": "96374344743",
+        "Address": {
+            "House_number": "19",
+            "Street_name": "kunjimz",
+            "Pin_number": "90900",
+            "Country": "India"
+        },
+        "Subjects": [{
+            "Subject_name": "Math", "Total_marks": "78"
+        }, { "Subject_name": "Science", "Total_marks": "80" }],
+        "Applied_for_Scholarship": true
+
+    }
+
+]

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> countdown Timer </h1>
+
+    <p id="timer"></p>
+</body>
+<script>
+
+    function countdownTimer(seconds) {
+
+        return new Promise((resolve, reject) => {
+            function tick() {
+
+                const timer = document.getElementById("timer");
+
+                if (seconds > 0) {
+                    timer.textContent = seconds;
+                    seconds--;
+                    setTimeout(tick, 1000);
+                } else if (seconds === 0) {
+
+                    timer.textContent = "countown completed"
+                    resolve("countown completed");
+                }
+                else {
+                    reject("Time's up");
+
+                }
+
+               
+            }
+
+
+           
+
+           tick(); 
+        })
+
+       
+    }
+    async function startCountdown(seconds) {
+                try {
+
+                    const message = await countdownTimer(seconds);
+                    console.log(message);
+
+
+                }
+                catch (error) { console.log(error) }
+            }
+
+
+
+    startCountdown(5);
+    setTimeout(()=>startCountdown(3),7000)
+    
+
+
+
+
+</script>
+
+</html>

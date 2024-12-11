@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 11</title>
+    <style>
+        .searchbox {
+            width: 400px;
+            height: 900px;
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #search {
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="searchbox" class="searchbox">
+        <input oninput="searcher()" type="text" id="search" placeholder="Search by name">
+        <div id="innerbox">
+            <div id="box"></div>
+        </div>
+    </div>
+
+    <script>
+        let students = []; // Declare globally to access in all functions
+        let box = document.getElementById('box');
+
+        // Fetch student data from task11.json
+        const fetchData = async () => {
+            let response = await fetch('task11.json');
+            students = await response.json(); // Assign data globally
+
+            for (let i = 0; i < students.length; i++) {
+                // Create elements for each student
+                let paragraph = document.createElement('p');
+                let profile_button = document.createElement('button');
+                let newdiv = document.createElement('div');
+
+                paragraph.innerText = students[i].Name;
+                profile_button.innerText = "View Profile";
+
+                // Initially hide all elements
+                paragraph.style.display = "none";
+                profile_button.style.display = "none";
+
+                newdiv.append(paragraph, profile_button);
+                box.appendChild(newdiv);
+
+                // Add event listener for the button
+                profile_button.addEventListener("click", () => {
+                    button_click(students[i]);
+                });
+            }
+        };
+
+        fetchData(); // Call the function to load data
+
+        function searcher() {
+            let value = document.getElementById('search').value.toLowerCase();
+            let paragraphs = document.querySelectorAll("#box p");
+            let buttons = document.querySelectorAll("#box button");
+
+            for (let i = 0; i < students.length; i++) {
+                if (students[i].Name.toLowerCase().includes(value)) {
+                    // Show matched elements
+                    paragraphs[i].style.display = "block";
+                    buttons[i].style.display = "block";
+                } else {
+                    // Hide non-matched elements
+                    paragraphs[i].style.display = "none";
+                    buttons[i].style.display = "none";
+                }
+            }
+        }
+
+        function button_click(student) {
+            // Remove existing profile info if any
+            let existingProfileInfo = document.getElementById('profile_info');
+            if (existingProfileInfo) existingProfileInfo.remove();
+
+            let profile_info = document.createElement("div");
+            profile_info.id = "profile_info";
+
+            // Hide searchbox
+            document.getElementById('searchbox').style.display = "none";
+
+            // Populate student details
+            profile_info.innerHTML = `
+                <h2>${student.Name}'s Profile</h2>
+                <p><strong>College ID:</strong> ${student.College_Id}</p>
+                <p><strong>Email:</strong> ${student.Email}</p>
+                <p><strong>Phone Number:</strong> ${student.Phone_number}</p>
+                <p><strong>Address:</strong> ${student.Address.House_number}, ${student.Address.Street_name}, ${student.Address.Pin_number}, ${student.Address.Country}</p>
+                <p><strong>Applied for Scholarship:</strong> ${student.Applied_for_Scholarship}</p>
+                <p><strong>Subjects:</strong></p>
+                <ul>
+                    ${student.Subjects.map(sub => `<li>${sub.Subject_name}: ${sub.Total_marks}</li>`).join("")}
+                </ul>
+                <button id="back_button">Back</button>
+            `;
+
+            document.body.appendChild(profile_info);
+
+            // Back button functionality
+            document.getElementById('back_button').addEventListener("click", () => {
+                profile_info.remove();
+                document.getElementById('searchbox').style.display = "flex";
+                document.getElementById('search').value = ""; // Clear input field
+            });
+        }
+    </script>
+</body>
+
+</html>

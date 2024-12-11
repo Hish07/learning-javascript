@@ -4,135 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>toggle</title>
+    <title>Carousel</title>
 </head>
 <style>
-    .enlarged {
-
-        display: none;
+    #pic {
+        border: 1px;
+        width: 800px;
+        height: 600px;
     }
-
-    .seen {
+    .carousel{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #prev-btn,#next-btn{
+        border: none;
+        color: brown66;
+       
+    }
+    .t1{
+        width: 840px;
+        position: absolute;
         display: flex;
         justify-content: space-between;
     }
 
-    .t1 {
-        display: none;
-    }
-
-    .op {
-        display: none;
-    }
+    
 </style>
 
 <body>
-    <div>
-        <button id="enlarge" onclick="velth()"> Touch me</button>
-        <p id="cuck">BBC</p>
 
-        <button id="gmt" onclick="counter()">Like</button>
-        <button id="" onclick="revcounter()">Dislike</button>
-        <h1 id="t1"></h1>
 
-        <br>
-        <br>
+    <div class="carousel">
 
-        <div>
-            <div  class="seen" onclick="toggleanswer()">
-                <h3>what is the first question?</h3>
-                <div>V</div>
-            </div>
-            <p id="t2" class="op" onclick="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur excepturi
-                quam
-                doloremque. Non vitae
-                repellendus reiciendis, magni sunt laboriosam minima fuga aliquid ratione eaque quaerat. Tenetur
-                laudantium quasi modi minus.</p>
+        <img id="pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWjslpy8ura830OB1UUFoJl2q5WtKu2MRh-w&s"
+            alt="carousel-image">
+        <div class="t1">
+            <button id="prev-btn" onclick="previousImg()">⬅️</button>
+            <button id="next-btn" onclick="updateImage()">➡️</button>
         </div>
-        <div>
-            <div class="seen" onclick="toggleanswer()">
-                <h3>what is the second question?</h3>
-                <div>V</div>
-            </div>
-            <p id="t2" class="op" onclick="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas ipsum illo
-                eius mollitia aut
-                dolores,
-                fugit nulla cupiditate minus numquam quo adipisci quam, nesciunt hic ad, accusamus officia fugiat
-                eveniet.</p>
-        </div>
-        <div class="seen" onclick="toggleanswer()">
-            <h3>what is the third question?</h3>
-            <div>V</div>
-        </div>
-        <div>
-            <p id="t2" class="op" onclick="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-                similique earum quae ipsum
-                nam quos
-                accusamus itaque doloremque, explicabo neque perferendis sed odio totam numquam. Delectus, id.
-                Laboriosam, repellat numquam?</p>
-        </div>
+
+
+
 
     </div>
 
 </body>
 <script>
+    const images = ['https://www.holidify.com/images/bgImages/MUNNAR.jpg',
+        'https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/places-to-travel-in-2018-1522385995-785X440.jpg',
+        'https://www.holidify.com/images/bgImages/VARKALA.jpg'];
 
-    let t2 = document.getElementById('t2')
-    let t3 = document.getElementById('t3')
+    let imagepos = 0;
+    let pic = document.getElementById('pic')
+    let previous = document.getElementById('prev-btn')
+    let next = document.getElementById('next-btn')
 
-    function toggleanswer() {
 
-        t2.classList.toggle('op')
-        t3.addEventListener('click',()=>{
-            t3.classList.toggle('op')
-        })
 
+
+    function updateImage() {
+        if (imagepos == images.length) {
+
+            imagepos = 0
+        }
+        pic.src = images[imagepos]
+
+
+        imagepos += 1
+        console.log("image now is : " + images[imagepos] + " pos is : " + imagepos)
+    }
+
+    function previousImg() {
+
+        if (imagepos == 0) {    
+            imagepos = 2
+        }
+        else{
+            imagepos -= 1
+
+        }
+       
+        pic.src = images[imagepos]
+        console.log("image now is : " + images[imagepos] + " pos is : " + imagepos)
 
 
 
     }
+    document.addEventListener('keydown',(event)=>{
+        if(event.key==='ArrowRight'){
+            updateImage();
+        }
+        else if(event.key === 'ArrowLeft'){
+            previousImg();
+        }
+    })
 
-    let enlarge = document.getElementById('enlarge')
-    let cuck = document.getElementById('cuck')
-
-
-
-
-
-    function velth() {
-
-        cuck.classList.toggle('enlarged')
-
-    }
-
-    //////////////////
-
-
-
-    let t1 = document.getElementById('t1')
-    t1.innerHTML = "0"
-    console.log(t1)
-    let count = parseInt(t1.innerHTML)
-    function counter() {
-
-
-
-        count += 1
-        t1.innerHTML = count
-
-
-
-
-
-    }
-
-    function revcounter() {
-        count -= 1
-        t1.innerHTML = count
-    }
-
-
-    ///////////////////////
 
 
 

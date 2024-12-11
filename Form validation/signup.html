@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <div id="t1" class="container">
+        <form action="" onsubmit="signup(); return false;" class="container">
+            <h1>Sign Up</h1>
+            <br>
+            <br>
+            <hr>
+            <label for="email"><b>Email</b></label>
+            <br>
+            <br>
+            <input  id="email" placeholder="enter your email">
+            <br>
+            <br>
+            <label for="password"><b>Password</b></label>
+            <br>
+            <br>
+            <input type="password" id="password" placeholder="create a new password">
+            <br>
+            <br>
+            <label for="password"><b>Confirm password</b></label>
+            <br>
+            <br>
+            <input type="password" id="confirm-password" placeholder="Re-enter your password">
+            <br>
+            <br>
+
+            <input type="submit" value="Register">
+            <br>
+            <br>
+            <br>
+
+            <p> Alreadt  have an account? <a href="./login.html">Login</a></p>
+            
+        </form>
+    </div>
+
+
+    
+</body>
+<script>
+function signup(){
+  const email = document.getElementById('email').value
+  const password =document.getElementById('password').value
+  const confirmPassword =document.getElementById('confirm-password').value
+
+  if( password  !== confirmPassword){
+    alert('Password do not match');
+    return;
+
+  }
+  localStorage.setItem('email',email);
+  localStorage.setItem('password',password);
+
+  alert('SignUp successfull');
+  window.location.href = './login.html';
+
+
+}
+
+
+
+</script>
+</html>

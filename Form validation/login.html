@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <form action="" onsubmit="login(); return false;">
+            <h1>Log in</h1>
+            
+            <label for="email"><b>Email</b></label>
+            <br>
+            <br>
+            <input type="email" placeholder="enter email" id="email" required>
+            <br>
+            <br>
+            <label for="password" ><b>Password</b></label>
+            <br>
+            <br>
+            <input type="password" id="password" placeholder="enter your password" >
+            <br>
+            <br>
+           
+            <input type="submit" value="Login">
+            <br>
+            <br>
+            <br>
+
+            <p> Don't have an account? <a href="./signup.html">signup</a></p>
+            
+
+
+
+
+
+
+
+
+        </form>
+
+
+
+
+
+    </div>
+
+    
+
+
+
+</body>
+<script>
+    function login() {
+        const email = document.getElementById('email').value
+        const password = document.getElementById('password').value
+        const storedEmail = localStorage.getItem('email')
+        const storedPassword = localStorage.getItem('password');
+
+        if(email === storedEmail && password === storedPassword)
+    {
+        alert("Login successfull")
+        window.location.href = './welcome.html'
+    }else{
+        alert("invalid email or password!");
+    }
+    }
+</script>
+</html>

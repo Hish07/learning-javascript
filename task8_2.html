@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle</title>
+</head>
+<style>
+    .enlarged {
+
+        display: none;
+    }
+
+    .seen {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .t1 {
+        display: none;
+    }
+
+    .op {
+        display: none;
+    }
+</style>
+
+<body>
+    <div>
+        <button id="enlarge" onclick="velth()"> Touch me</button>
+        <p id="cuck">BBC</p>
+
+        <button id="gmt" onclick="counter()">Like</button>
+        <button id="" onclick="revcounter()">Dislike</button>
+        <h1 id="t1"></h1>
+
+        <br>
+        <br>
+
+        <div>
+            <div  class="seen" onclick="toggleanswer()">
+                <h3>what is the first question?</h3>
+                <div>V</div>
+            </div>
+            <p id="t2" class="op" onclick="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur excepturi
+                quam
+                doloremque. Non vitae
+                repellendus reiciendis, magni sunt laboriosam minima fuga aliquid ratione eaque quaerat. Tenetur
+                laudantium quasi modi minus.</p>
+        </div>
+        <div>
+            <div class="seen" onclick="toggleanswer()">
+                <h3>what is the second question?</h3>
+                <div>V</div>
+            </div>
+            <p id="t2" class="op" onclick="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas ipsum illo
+                eius mollitia aut
+                dolores,
+                fugit nulla cupiditate minus numquam quo adipisci quam, nesciunt hic ad, accusamus officia fugiat
+                eveniet.</p>
+        </div>
+        <div class="seen" onclick="toggleanswer()">
+            <h3>what is the third question?</h3>
+            <div>V</div>
+        </div>
+        <div>
+            <p id="t2" class="op" onclick="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+                similique earum quae ipsum
+                nam quos
+                accusamus itaque doloremque, explicabo neque perferendis sed odio totam numquam. Delectus, id.
+                Laboriosam, repellat numquam?</p>
+        </div>
+
+    </div>
+
+</body>
+<script>
+
+    let t2 = document.getElementById('t2')
+    let t3 = document.getElementById('t3')
+
+    function toggleanswer() {
+
+        t2.classList.toggle('op')
+        t3.addEventListener('click',()=>{
+            t3.classList.toggle('op')
+        })
+
+
+
+
+    }
+
+    let enlarge = document.getElementById('enlarge')
+    let cuck = document.getElementById('cuck')
+
+
+
+
+
+    function velth() {
+
+        cuck.classList.toggle('enlarged')
+
+    }
+
+    //////////////////
+
+
+
+    let t1 = document.getElementById('t1')
+    t1.innerHTML = "0"
+    console.log(t1)
+    let count = parseInt(t1.innerHTML)
+    function counter() {
+
+
+
+        count += 1
+        t1.innerHTML = count
+
+
+
+
+
+    }
+
+    function revcounter() {
+        count -= 1
+        t1.innerHTML = count
+    }
+
+
+    ///////////////////////
+
+
+
+
+
+
+</script>
+
+</html>

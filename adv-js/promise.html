@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        #main_div {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        #box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        #box div {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        #box div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #box p {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #box button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #box button:hover {
+            background-color: #0056b3;
+        }
+
+        .product-details {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .product-details img {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 5px;
+            background-color: #f7f7f7;
+        }
+
+        .product-details p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .product-details button {
+            display: block;
+            margin: 20px auto;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .product-details button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main_div">
+        <div id="box"></div>
+    </div>
+
+    <script>
+        var Details = []; // Declare Details globally to access it outside fetchData
+
+        var fetchData = async () => {
+            var response = await fetch("https://fakestoreapi.com/products");
+            Details = await response.json(); // Assign fetched data to global variable 'Details'
+
+            // Now create the product cards after data is fetched
+            for (let i = 0; i < Details.length; i++) {
+                var sub_div = document.createElement("div");
+                var profile_button = document.createElement("button");
+                var paragraph = document.createElement("p");
+                box.appendChild(sub_div);
+                sub_div.style.display = "flex";
+                sub_div.style.flexDirection = "column";
+                sub_div.style.alignItems = "center";
+                sub_div.style.gap = "10px";
+
+                var img = document.createElement("img");
+                img.src = Details[i].image;
+                img.alt = Details[i].title;
+                img.style.maxWidth = "100px";
+                img.style.height = "auto";
+
+                profile_button.innerText = "View more..";
+                sub_div.append(img);
+                sub_div.append(paragraph);
+                sub_div.append(profile_button);
+                paragraph.innerText = Details[i].title;
+                profile_button.addEventListener("click", () => {
+                    profile_button_onclick(Details[i]);
+                });
+            }
+        };
+
+        var box = document.getElementById("box");
+
+        function profile_button_onclick(Details) {
+            box.style.display = "none";
+
+            var product_div = document.createElement("div");
+            product_div.classList.add("product-details");
+
+            var product_img = document.createElement("img");
+            var product_para1 = document.createElement("p");
+            var product_para2 = document.createElement("p");
+            var product_para3 = document.createElement("p");
+            var product_para5 = document.createElement("p");
+            var product_para6 = document.createElement("p");
+
+            product_img.src = Details.image;
+            product_img.alt = Details.title;
+
+            product_para1.innerText = "Title: " + Details.title;
+            product_para2.innerText = "Price: $" + Details.price;
+            product_para3.innerText = "Description: " + Details.description;
+            product_para5.innerText = "Category: " + Details.category;
+            product_para6.innerText = "Id: " + Details.id;
+
+            main_div.append(product_div);
+            product_div.append(product_img);
+            product_div.append(product_para1);
+            product_div.append(product_para2);
+            product_div.append(product_para3);
+            product_div.append(product_para5);
+            product_div.append(product_para6);
+
+            var product_bckbtn = document.createElement("button");
+            product_bckbtn.innerText = "Back";
+            product_bckbtn.addEventListener("click", () => {
+                product_div.remove();
+                box.style.display = "grid";
+            });
+
+            product_div.append(product_bckbtn);
+        }
+
+        fetchData();
+    </script>
+</body>
+
+</html>

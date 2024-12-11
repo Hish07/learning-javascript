@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var num1 = parseInt(prompt("Number 1"))
+    var num2 = parseInt(prompt("Number 2"))
+ 
+
+
+
+    async function addition(num1, num2) {
+
+     return new Promise((resolve)=>{
+
+        setTimeout(()=>{
+            resolve(num1 + num2)
+        },2000);
+     })
+    }
+
+    async function performAddition(){
+        alert("Calculating...wait 2 seconds")
+        const result = await addition(num1, num2)
+        alert('The result is '+ "" + result)
+    }
+
+   performAddition()
+
+
+
+</script>
+</html>
